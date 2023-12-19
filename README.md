@@ -1,18 +1,12 @@
-# Vue 3 + TypeScript + Vite
+# Vue SQL Dashboard
+The purpose of this Dashoboard is to display data received from a local db file with customizable SQL.
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Here is a picture of the dashboard:
+![2023-12-19 23_19_32-](https://github.com/nilhom/vue-sql-dashboard/assets/106468650/4fed6877-0054-4006-905f-d5dbc24a3acd)
 
-## Recommended IDE Setup
+On the left side a table can be picked. On this table then different SQL queries gets run which are shown in bar diagrams on the right side.
+The SQL queries can be defined per container and the containers can be resized, renamed and moved.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+# Example Dataset
 
-## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+The example is played songs on radio stations (mostly german) from about 2021 to 2023.
