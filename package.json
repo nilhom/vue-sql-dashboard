@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodejs start.cjs",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build && npm install codesandbox && yarn add @codesandbox/utils",
     "preview": "vite preview"
   },
   "dependencies": {
