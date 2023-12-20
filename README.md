@@ -15,3 +15,58 @@ The example is played songs on radio stations (mostly german) from about 2021 to
 
 https://www.phind.com/search?cache=gdgv68qpuucwcu3chn3cnjkn
 
+## SQL queries in example
+
+### Most played Artists
+
+```SQL
+SELECT artist, COUNT(*) AS entry_count
+FROM {{TABLE_NAME}}
+GROUP BY artist
+ORDER BY entry_count DESC
+LIMIT 10;
+```
+
+Random Artists
+
+```SQL
+SELECT *
+FROM (
+	SELECT *
+	FROM (
+		SELECT artist, COUNT(*) AS entry_count
+		FROM {{TABLE_NAME}}
+		GROUP BY artist
+	) AS random_artists
+	ORDER BY Random()
+	LIMIT 10
+)
+ORDER BY entry_count DESC;
+```
+
+### Most played Songs 
+
+```SQL
+SELECT artist || ' - ' || song_name AS combined, COUNT(*) AS entry_count
+FROM {{TABLE_NAME}}
+GROUP BY combined
+ORDER BY entry_count DESC
+LIMIT 10;
+```
+
+### Random Songs
+
+```SQL
+SELECT *
+FROM (
+	SELECT *
+	FROM (
+		SELECT artist || ' - ' || song_name AS combined, COUNT(*) AS entry_count
+		FROM {{TABLE_NAME}}
+		GROUP BY combined
+	) AS random_songs
+	ORDER BY Random()
+	LIMIT 10
+)
+ORDER BY entry_count DESC;
+```
