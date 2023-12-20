@@ -7,13 +7,13 @@
         <div v-for="(tableName, index) in tableNames" :key="tableName">
           <div class="button-wrapper">
             <div
-                class="indicator"
-                :class="{ 'show-indicator': index === selectedTableIndex }"
+              class="indicator"
+              :class="{ 'show-indicator': index === selectedTableIndex }"
             ></div>
             <button
-                class="button"
-                :class="{ 'selected': index === selectedTableIndex }"
-                @click="clickedOnTable(index)"
+              class="button"
+              :class="{ selected: index === selectedTableIndex }"
+              @click="clickedOnTable(index)"
             >
               {{ tableName }}
             </button>
@@ -25,10 +25,11 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { fetchData } from "../apiCall.js";
 
 export default {
-  name: 'Sidebar',
+  name: "Sidebar",
   data() {
     return {
       tableNames: [],
@@ -36,35 +37,33 @@ export default {
     };
   },
   mounted() {
-    axios.post('http://localhost:3000/api/query', {
-      sql: 'SELECT name FROM sqlite_master WHERE type="table" ',
-    })
-        .then(response => {
-          var tables = []
-          tables = response.data.data;
-          tables = tables.map(tableName => tableName.name)
-          tables = tables.filter(tableName => tableName !== 'log')
-          this.tableNames = tables
-          this.$emit('newTableSelected', this.tableNames[0]);
-        })
-        .catch(error => {
-          console.error('Error fetching table names:', error);
-        });
+    fetchData('SELECT name FROM sqlite_master WHERE type="table" ')
+      .then((response) => {
+        console.log("res " + response.data);
+        var tables = [];
+        tables = response;
+        tables = tables.map((tableName) => tableName.name);
+        tables = tables.filter((tableName) => tableName !== "log");
+        this.tableNames = tables;
+        this.$emit("newTableSelected", this.tableNames[0]);
+      })
+      .catch((error) => {
+        console.error("Error fetching table names:", error);
+      });
   },
   methods: {
     clickedOnTable(tableIndex) {
       this.selectedTableIndex = tableIndex;
-      this.$emit('newTableSelected', this.tableNames[tableIndex]);
+      this.$emit("newTableSelected", this.tableNames[tableIndex]);
       //this.fetchData(this.selectedTable);
     },
     fetchData(tableName) {
-      console.log('Fetching data for table:', tableName);
+      console.log("Fetching data for table:", tableName);
       // You can perform additional logic here to fetch data for the selected table
     },
   },
 };
 </script>
-
 
 <style scoped lang="scss">
 .sidebar {
@@ -142,5 +141,4 @@ export default {
     opacity: 1;
   }
 }
-
 </style>

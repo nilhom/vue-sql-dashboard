@@ -4,27 +4,29 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "nodejs start.cjs",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codesandbox/utils": "^1.0.2",
     "@interactjs/actions": "^1.10.26",
     "@interactjs/auto-start": "^1.10.26",
     "@interactjs/interact": "^1.10.26",
     "axios": "^1.6.2",
     "body-parser": "^1.20.2",
     "chart.js": "^4.4.1",
+    "codesandbox": "^2.2.3",
     "cors": "^2.8.5",
+    "express": "^4.18.2",
     "interactjs": "^1.10.26",
     "sass": "^1.69.5",
     "sqlite3": "^5.1.6",
     "ste-simple-events": "^3.0.11",
     "vue": "^3.2.36",
-    "vue-element-resize-detector": "^1.0.6",
     "vue-chartjs": "^5.2.0",
-    "vue-router": "^4.0.13",
-    "express": "^4.18.2"
+    "vue-element-resize-detector": "^1.0.6",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@types/vue": "^2.0.0",
