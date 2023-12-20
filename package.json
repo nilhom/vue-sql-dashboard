@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodejs start.cjs",
-    "build": "vue-tsc && vite build && npm install codesandbox && yarn add @codesandbox/utils",
+    "dev": "npm install codesandbox && yarn add @codesandbox/utils && nodejs start.cjs",
+    "build": "vue-tsc && vite build ",
     "preview": "vite preview"
   },
   "dependencies": {
